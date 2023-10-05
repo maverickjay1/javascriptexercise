@@ -104,37 +104,49 @@ functionC();
 
 //9.	Define a 4th variable inside the 3rd function. This variable should be accessible by every function
 
-//Don't know//
+const primaryVariable = "I'm global";
 
-//10.	Create a scope inside the 3rd function, place a variable inside it that is only accessible inside that scope
+function functionOneA() {
+  const functionV1 = "I'm in functionOne";
 
-//Don't know.//
+  function functionTwoA() {
+    const functionV2 = "I'm in functionTwo";
 
-//11.  Write out a try catch block with finally
+    function functionThreeA() {
+      const functionV3 = "I'm in functionThree";
 
-try {
-  console.log(undefinedVariable);
-} catch (error) {
-  console.error("An error occurred");
-} finally {
-  console.log("This code always runs.");
+      console.log(primaryVariable);
+      console.log(functionV1);
+      console.log(functionV2);
+      console.log(functionV3);
+    }
+
+    functionThreeA();
+  }
+
+  functionTwoA();
+
+  functionOneA();
+
+  //10.	Create a scope inside the 3rd function, place a variable inside it that is only accessible inside that scope
+
+  //11.  Write out a try catch block with finally
+
+  try {
+    console.log(undefinedVariable);
+  } catch (error) {
+    console.error("An error occurred");
+  } finally {
+    console.log("This code always runs.");
+  }
+
+  //12.  Duplicate an object so mutating the original does not mutate the copy
+
+  const original = { name: "John" };
+  const copy = { ...original };
+
+  copy.name = "Alice";
+
+  console.log(original);
+  console.log(copy);
 }
-
-//12.  Duplicate an object so mutating the original does not mutate the copy
-
-// Original shopping cart
-const shoppingCart = {
-  items: [
-    { id: 1, name: "Product A", price: 10 },
-    { id: 2, name: "Product B", price: 15 },
-  ],
-  total: 25,
-};
-
-const copiedCart = { ...shoppingCart };
-
-shoppingCart.items.push({ id: 3, name: "Product C", price: 12 });
-shoppingCart.total = 37;
-
-console.log("Original Cart:", shoppingCart);
-console.log("Copied Cart:", copiedCart);
