@@ -5,3 +5,9 @@ import { greeting, person, sayHello } from "./index4.js";
 console.log(greeting);
 console.log(person);
 console.log(sayHello());
+
+//
+
+import { defaultGreeting } from "./index4.js";
+
+console.log(defaultGreeting);
