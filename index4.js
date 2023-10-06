@@ -1,4 +1,4 @@
-/*//Question: Add a variable, object and function (use fat arrow)//
+//Question: Add a variable, object and function (use fat arrow)//
 
 // Variable
 export const greeting = "Hello, ";
@@ -78,4 +78,52 @@ const jake = createPerson("Jake", 30);
 
 console.log(jake);
 
-//
+//Create a constructor function & Create an instance of the function//
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const mary = new Person("Mary", 28);
+
+console.log(mary);
+
+//Extend the prototype with a new function//
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Adding a new function to the Person prototype
+Person.prototype.greet = function () {
+  console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+};
+
+const sam = new Person("Sam", 30);
+sam.greet();
+
+//Create an object with a method and Invoke the method using Call, Apply and Bind
+
+const car = {
+  brand: "Toyota",
+  model: "Camry",
+  year: 2022,
+  startEngine: function () {
+    console.log("Engine started!");
+  },
+};
+
+// Call the method
+car.startEngine();
+
+//call
+car.startEngine.call(car);
+
+//apply
+car.startEngine.apply(car);
+
+//bind
+const startCarEngine = car.startEngine.bind(car);
+startCarEngine();
